@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+Hi {{user.username}}, how would you like to save the world today?
+<div class="row">
+  <div class="col-md-2 col-md-offset-3">
+    <div class="dashboard-choices">
+      <a href="{% url 'project_start' %}">
+        <div class="btn btn-primary">Start a project?</div>
+      </a>
+      <br>
+      In order of priority
+      <ul>
+        <li>User can create map</li>
+        <li>User can add monitor</li>
+        <li>User can purchase monitor</li>
+        <li>User can create groups</li>
+        <li>User can invite users</li>
+        <li>User can add users to group</li>
+        <li>User can create tasks</li>
+        <li>User can assign task to user</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-offset-2">
+    <div class="dashboard-choices">
+      <div class="btn btn-primary">Sponsor a project?</div>
+      <ul>
+        <li>User can place sponsor logo or similar</li>
+        <li>User can contribute amount</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
