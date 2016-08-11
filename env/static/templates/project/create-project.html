@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load leaflet_tags %}
 
 {% block content %}
 
 <div class="row">
   <h1>Create a project</h1>
+
+  <div id="mapContainer">
+    {% leaflet_map "seMap" %}
+  </div>
 </div>
 
 

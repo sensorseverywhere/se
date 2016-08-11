@@ -1,5 +1,5 @@
 body { background-color: #fdfcf4;}
-.container-fluid { padding-left: 0px; padding-right: 0px; }
+.container-fluid { padding-left: 5%; padding-right: 5%; }
 .navbar {margin-bottom: 0px; }
 header .header-styles { height: 40px; background-color: #B4E09A; color: #1B4800; border-bottom: solid 2px #78286B; width: 100%; }
 /*header .header-styles { height: 30px; background-color: #000; color: #fff; border-bottom: solid 2px #804015; width: 100%; }*/
@@ -39,3 +39,9 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 
 ### CREDIT CARD ###
 #cc-container { margin-top: 20px; position: absolute;}
+
+### LEAFLET
+.leaflet-container-default {
+    min-height: 600px !important;
+}
+.leaflet-container { margin-top: 20px; width: 90%; margin: 0 auto; height: 600px;}

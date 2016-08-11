@@ -36,3 +36,9 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 ### LOGIN PAGE ###
 
 .signin-login-page { top: 50px;}
+
+### CREDIT CARD ###
+#cc-container { margin-top: 20px; position: absolute;}
+
+### LEAFLET
+.leaflet-container { width: 90%; height: 600px; margin: 0 auto; }
