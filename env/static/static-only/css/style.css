@@ -1,24 +1,23 @@
 body { background-color: #fdfcf4;}
-.container-fluid { padding-left: 0px; padding-right: 0px; }
-.navbar {margin-bottom: 0px; }
-header .header-styles { height: 40px; background-color: #B4E09A; color: #1B4800; border-bottom: solid 2px #78286B; width: 100%; }
-/*header .header-styles { height: 30px; background-color: #000; color: #fff; border-bottom: solid 2px #804015; width: 100%; }*/
-a { color: #1B4800; }
+.container-fluid { padding-left: 5%; padding-right: 5%; }
+.navbar-brand {margin-top: -12px; height: 90px; }
+header .header-styles { height: 90px; background-color: #ff; color: #DCDCDC; border-bottom: solid 2px #78286B; width: 100%; }
 ul.nav li a:hover { background-color: #fafafa; }
 header .nav-container { margin-top: -5px; width: 100%;}
 header .nav-container ul li a { color: #fff;}
 footer { position: fixed; bottom: 0; margin-left: 12.5%; width: 75%; background-color: #fff; height: 30px; }
 footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
-#logo { width: 20px; margin: 5px 0 0 5px; }
 .menu { float: right; margin-top: -20px; }
 .main-container { box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000; height: 800px;}
 .page-width-container{ width: 75%; margin: -20px auto;}
 
 ### FRONT PAGE ###
+#test {background: red; width: 100px; height: 200px; display: block;}
 
-.hero-container { position: relative; display: inline-block;}
-.hero-container img { margin-left: 1%; max-width: 100%; display: block; }
-.signup-container{ border: solid 1px black; background: #fff; padding: 10px 30px; top: 100px; left: 0; position: absolute; z-index: 1000; }
+.hero-container{ background: url('/media/hero-map.jpg') no-repeat center top; position: relative; display: block; height: 400px; width: 90% !important; margin: 0 auto; }
+.signup-container{ background: #fff; padding: 10px 30px; top: 20px; left: -10%; position: absolute; z-index: 1000; width: 30%; height: 360px; }
+.front-page-services { margin-top: 20px; }
+
 
 ## SOCIAL MEDIA LOGINS ###
 
@@ -41,4 +40,5 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 #cc-container { margin-top: 20px; position: absolute;}
 
 ### LEAFLET
-.leaflet-container { width: 90%; height: 600px; margin: 0 auto; }
+.leaflet-container { height: 400px; display: block; }
+#mapContainer { height: 400px; display: block;}

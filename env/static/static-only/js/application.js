@@ -23,13 +23,13 @@ $(function() {
           $("#user_submit").attr("disabled", false);
         }
       });
-      
+
       return false;
-      
-    } 
-    
+
+    }
+
     return true
-    
+
   });
 
   $("#change-card a").click(function() {

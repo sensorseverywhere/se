@@ -40,7 +40,5 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 #cc-container { margin-top: 20px; position: absolute;}
 
 ### LEAFLET
-.leaflet-container-default {
-    min-height: 600px !important;
-}
-.leaflet-container { margin-top: 20px; width: 90%; margin: 0 auto; height: 600px;}
+.leaflet-container { height: 400px; display: block; }
+#mapContainer { height: 400px; display: block;}
