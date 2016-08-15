@@ -1,6 +1,5 @@
 $(function(){
 
-
     var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
         thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
 
@@ -18,6 +17,24 @@ $(function(){
     var map = L.map('mapContainer', {
 		    layers: [esriMap] // only add one!
 	  }).setView([-37.372804, 144.499871], 17);
+
+    var drawnItems = new L.FeatureGroup();
+
+    map.on('draw:created', function(e) {
+      var type = e.layerType,
+          layer = e.layer;
+
+          map.addLayer(layer);
+    });
+
+    // Initialise the draw control and pass it the FeatureGroup of editable layers
+    var drawControl = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        }
+    });
+    map.addControl(drawControl);
+
 
 	 var baseLayers = {
 	  	"OSM Mapnik": osmMap,
