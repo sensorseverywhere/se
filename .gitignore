@@ -1,2 +1,8 @@
 *.pyc
 env/lib/*
+env/bin
+env/include
+env/node_modules
+env/assets/node_modules
+.gitignore
+

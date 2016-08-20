@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
+    'webpack_loader',
     'rest_framework',
     'crispy_forms',
     'payment',
@@ -79,18 +81,19 @@ MIDDLEWARE_CLASSES = [
 
 ]
 
-# LEAFLET_CONFIG = {
-#     'DEFAULT_CENTER': (6.0, 45.0),
-#     'DEFAULT_ZOOM': 9,
-#     'MIN_ZOOM': 3,
-#     'MAX_ZOOM': 18,
-#     'MINIMAP': True,
-#     #'FORCE_IMAGE_PATH': True, For compression
-#     'TILES':  [('Satellite', 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {'attribution': '&copy; IGN'}),
-#                ('Streets', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'})]
-# }
-
 ROOT_URLCONF = 'se.urls'
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ONLY_URL = '/static-only/'
+#
+
+if DEBUG:
+    MEDIA = '/media',
+    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static-only')
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'media')
+    STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static'),
+    )
 
 TEMPLATES = [
     {
@@ -108,6 +111,13 @@ TEMPLATES = [
         },
     },
 ]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, '../webpack-stats.json'),
+    }
+}
 
 
 AUTHENTICATION_BACKENDS = (
@@ -184,17 +194,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-STATIC_ONLY_URL = '/static-only/'
-#
-
-if DEBUG:
-    MEDIA = '/media',
-    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static-only')
-    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'media')
-    STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static'),
-    )
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
