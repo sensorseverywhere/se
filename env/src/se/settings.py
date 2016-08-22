@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'contact',
     'sensor',
     'stripe',
+    'corsheaders',
 ]
 
 # REST_FRAMEWORK = [
@@ -71,6 +72,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -81,19 +83,20 @@ MIDDLEWARE_CLASSES = [
 
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 ROOT_URLCONF = 'se.urls'
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ONLY_URL = '/static-only/'
-#
+STATIC_ONLY_URL = '/static_only/'
 
 if DEBUG:
     MEDIA = '/media',
-    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static-only')
+    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'vendor')
     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'media')
-    STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static'),
-    )
+    STATICFILES_DIRS = os.path.join(os.path.dirname(BASE_DIR), 'assets', 'static'),
+
 
 TEMPLATES = [
     {
@@ -124,6 +127,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.AllowAny',
+#     )
+# }
 
 
 #TEST

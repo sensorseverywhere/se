@@ -17,6 +17,11 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'projects_all' %}">Projects</a>
+          <ul>
+            <li><a onclick="CreateProjectEvent()">Create Project</a></li>
+          </ul>
+        </li>
         <li><a href="/plans">Plans</a></li>
         {% if not request.user.is_authenticated %}
         <li><a href="{% url 'account_signup' %}">Sign Up</a></li>

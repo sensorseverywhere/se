@@ -8,7 +8,7 @@ module.exports = {
   entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
-        './assets/static/js/index'
+        './assets/static/js/nav'
       ], // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
 
   output: {

@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {%load static crispy_forms_tags i18n account socialaccount %}
-{% load render_bundle from webpack_loader %}
 {% block content %}
 <div>
 </div>
@@ -44,8 +43,6 @@
     <div class="callout" data-equalizer-watch>
 			<img class="img-responsive" src="{% get_media_prefix %}home/fire.png" alt="Early Warning Fire Detection" />
 			<h3>Early Warning Fire Detection</h3>
-				<div id="react-app"></div>
-				{% render_bundle 'main' %}
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut dui ac nisi vestibulum accumsan. Praesent gravida nulla vitae arcu blandit, non congue elit tempus. Suspendisse quis vestibulum diam.</p>
     </div>
   </div>
