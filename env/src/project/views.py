@@ -39,14 +39,6 @@ def projects_all(request):
     template = 'project/projects-all.html'
     return render(request, template, context)
 
-@login_required
-def create_project(request):
-    user = request.user
-    context = {'user': user}
-    template = 'project/create-project.html'
-    return render(request, template, context)
-
-
 
 @login_required
 def sensor_list(request):

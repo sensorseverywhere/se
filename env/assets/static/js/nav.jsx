@@ -1,9 +1,11 @@
-var React = require("react")
-var ReactDOM = require("react-dom")
+var $ = require("jquery");
+
+var React = require("react");
+var ReactDOM = require("react-dom");
 
 var AddProject = React.createClass({
   getInitialState: function() {
-    return { showModal: "none" }
+    return { showModal: "inherit" }
   },
   componentDidMount: function() {
     var self = this;
@@ -31,7 +33,7 @@ var AddProject = React.createClass({
       data: sendData,
       success: function(data) {
         var id = data.id
-        window.location.href = "http://localhost:8000/project/project/" + id + "/";
+        alert('project added. ' + id);
       }.bind(this),
       error: function(xhr, status, err) {
           console.log("localhost:8000/project/project", status, err.toString());
@@ -39,19 +41,22 @@ var AddProject = React.createClass({
     });
   },
   render: function() {
-    var style = { display: this.state.showModal, top: "50px" };
+    var style = { display: this.state.showModal, top: "-10px" };
     var close = <button className="btn btn-default" onClick={this.closeModal}>Close</button>;
     var addProjectBody = <div>
                             <label>Name:</label>
                             <input type="text" className="form-control" id="createProjectName"/>
                             <label>Description:</label>
                             <input type="text" className="form-control" id="createProjectDescription"/>
+                              <div id="mapContainer">
 
+                              </div>
                             <button style={{marginTop: "20px"}} className="btn btn-primary" onClick={this.addProject}>Create Project</button>
+                            <button style={{marginTop: "20px"}} className="btn btn-default" onClick={this.closeModal}>Cancel</button>
                          </div>
     return (
       <div>
-        <AddProjectModal style={style} title="Create a Project" close={close} body={addProjectBody} />
+        <AddProjectModal style={style} title="Create a Project" body={addProjectBody} />
       </div>
     )
   }
