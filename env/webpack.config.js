@@ -3,48 +3,45 @@ var webpack = require('webpack')
 var Bundvarracker = require('webpack-bundle-tracker')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJSPlugin = require("webpack-uglify-js-plugin");
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
-//require("!style!css!sass!./file.scss");
-//require("./stylesheet.css"
-const appEntry = ["./assets/static/js/nav","./assets/static/js/app"];
+
 const vendorModules = ["jquery"];
 
 module.exports = {
   context: __dirname,
-
     entry:
           [
            'webpack-dev-server/client?http://localhost:3000',
            'webpack/hot/only-dev-server',
-           './assets/static/js/nav',
+           './public/static/index',
          ],
-
-    // {
-    //     main: appEntry
-    // }, // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
-
   output: {
-      path: path.resolve('./assets/static/bundles/'),
-      filename: "[name]-[hash].js",
-      publicPath: 'http://localhost:3000/assets/static/bundles/',
+      path: path.resolve('./public/static/bundles/'),
+      //filename: "[name]-[hash].js",
+      filename: "[name].js",
+      publicPath: 'http://localhost:3000/public/static/bundles/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(), // don't reload if there is an error
     new Bundvarracker({filename: './webpack-stats.json'}),
     //new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
-    new webpack.optimize.UglifyJsPlugin({
-    compress: {
-        warnings: false
-    }
-}),
-    new ExtractTextPlugin("[name].css", {publicPath: './assets/static/bundles/',allChunks: true}),
+    new webpack.DefinePlugin({
+      "process.env": {
+         NODE_ENV: JSON.stringify("production")
+       }
+    }),
+    //new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false },}),
+    //new CleanWebpackPlugin('./public/static/bundles/*'),
+    //new ExtractTextPlugin("[name].css", {publicPath: './public/static/bundles/',allChunks: true}),
   ],
   module: {
       loaders: [
 
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot','babel-loader'],},  // to transform JSX into JS
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader") },
+      //{ test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader") },
+      { test: /\.scss$/, loaders: ["style", "css", "sass"] },
       { test: /\.(png|jpg|jpeg|gif|woff|ttf|eot|svg|woff2)/, loader: "url-loader?limit=512"},
     ],
 

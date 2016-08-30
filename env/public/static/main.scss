@@ -1,0 +1,81 @@
+body { background-color: green; color: #888;}
+.navbar-brand {height: 40px; background: url("./components/header/images/logo_hd.png") no-repeat; margin-top: 5px;}
+.navbar-links { padding-bottom: 10px; }
+header .header{ height: 50px; background-color: #fff; color: #888; border-bottom: solid 2px #78286B; width: 100%; }
+
+ul { list-style: none;}
+ul li { display: inline; float: right; margin-top: 15px;}
+ul li a { text-decoration: none; margin-right: 10px; padding: 15px 9px 15px 9px; color: #888}
+ul li a:hover { text-decoration: none; background-color: #fafafa; }
+
+.header-search-input { float: right; margin-top: 10px; }
+.header-search-input input[type=text] { height: 25px; width: 150px; display: inline-block;  }
+
+header .nav-container { margin-top: -5px; width: 100%;}
+header .nav-container ul li a { color: #fff;}
+footer { position: fixed; bottom: 0; margin-left: 12.5%; width: 75%; background-color: #fff; height: 30px; }
+footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
+.menu { float: right; margin-top: -20px; }
+.main-container { box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000; height: 800px;}
+.main-container-window { background-color: white;}
+.main-container-inset {background-color: #fff; }
+
+.page-width-container{ width: 75%; margin: -20px auto;}
+
+//FRONT PAGE
+.project-summary-container { margin-left: 4%; }
+.project-summary-box { background: #fff; width: 12%; height: 250px; box-shadow: 3px 3px 5px #999; float: left; margin-right: 2%; margin-top: 2%; }
+
+.signup-container-splashback {
+  width: 102%;
+  height: 100%;
+  //background-color: #fff;
+  background: url("./css/images/light_wool.png") repeat;
+  opacity: .8;
+  z-index: 999;
+  display: block;
+  position: absolute;
+  margin-left: -10%;
+}
+
+.signup-container{
+   border-radius: 2px;
+   background: #fff none repeat scroll 0 0;
+   height: 400px;
+   left: -15%;
+   margin: 100px 50%;
+   padding: 10px 30px;
+   position: absolute;
+   top: 20px;
+   width: 25%;
+   z-index: 1000;
+   box-shadow: 3px 3px 5px #999;
+}
+
+#div_id_login {  margin-top: 50px; }
+
+.front-page-services { margin-top: 20px; }
+
+
+//SOCIAL MEDIA ICONS
+
+.social-media-icons-front-page a{ margin-right: 20px; display: inline-block; float: left;}
+.social-media-icons-signin-page a{ margin-right: 20px; display: inline-block; float: left;}
+.fb{  background: url('/media/fb_200.png')  no-repeat center top;  width: 198px;  height: 37px; display: inline-block;}
+.fb-front-page{  background: url('/media/fb-front-page.png')  no-repeat center top;  width: 32px;  height: 32px; display: inline-block;}
+
+.google {background: url('/media/google.png') no-repeat center top; width: 198px; height: 37px; overflow: hidden; display: inline-block}
+.google-front-page {background: url('/media/google-front-page.png') no-repeat center top; width: 32px; height: 32px; overflow: hidden; display: inline-block}
+.twitter {background: url('/media/twitter.png') no-repeat center top; width: 198px; height: 43px; overflow: hidden; display: inline-block}
+.twitter-front-page {background: url('/media/twitter-front-page.png') no-repeat center top; width: 32px; height: 32px; overflow: hidden; display: inline-block}
+
+//LOGIN PAGE
+
+.signin-login-page { top: 50px;}
+
+//CREDIT CARD
+#cc-container { margin-top: 20px; position: absolute;}
+
+//LEAFLET
+.leaflet-container { height: 400px; display: block; }
+#mapContainer { height: 400px; display: block;}

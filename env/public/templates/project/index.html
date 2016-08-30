@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{%load static crispy_forms_tags i18n account socialaccount %}
+{% block content %}
+
+<div class="project-summary-container">
+	{% for project in projects %}
+	<div class="project-summary-box">
+		{{project.name}}
+		<br>
+		{{project.description}}
+		<br>
+	</div>
+	{% endfor %}
+</div>
+{% if not request.user.is_authenticated %}
+<div id="suSplash" class="signup-container-splashback" onClick="hideSignup()"></div>
+
+	<div id="suContainer" class="signup-container">
+		<div class="signin-front-page">
+			<h5>Sign In</h5>
+				<div class="social-media-icons-front-page">
+				 <a href="/accounts/twitter/login/"><div class="twitter-front-page"></div></a>
+				 <a href="/accounts/facebook/login/"><div class="fb-front-page"></div></a>
+				 <a href="/accounts/google/login/"><div class="google-front-page"></div></a>
+			 </div>
+			 <form class="login" method="POST" action="{% url 'account_login' %}">
+				 <input type='hidden' name='csrfmiddlewaretoken' value='zAnTLcflstbS8ZlBUsr5CVg6t1sNlWuS' />{% csrf_token %}
+						<div id="div_id_login" class="form-group">
+									<input autofocus="autofocus" class="" id="id_login" name="login" placeholder="Username or e-mail" type="text" />
+									<input class="" id="id_password" name="password" placeholder="Password" type="password" />
+									<p>
+									  <input class="checkboxinput" id="id_remember" name="remember" type="checkbox" />
+							  	  Remember Me
+								  </p>
+						</div>
+					</div>
+					<a class="btn btn-link secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+					<a class="btn btn-link secondaryAction" href="{% url 'account_signup' %}">Sign Up</a>
+				<button class="primaryAction" type="btn btn-default">Sign In</button>
+			</form>
+		</div>
+	</div>
+{% endif %}
+
+
+
+
+
+
+<!-- <div class="row front-page-services" data-equalizer data-equalize-on="medium" id="test-eq">
+  <div class="col-md-3">
+    <div class="callout" data-equalizer-watch>
+			<img class="img-responsive" src="{% get_media_prefix %}home/fire.png" alt="Early Warning Fire Detection" />
+			<h3>Early Warning Fire Detection</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut dui ac nisi vestibulum accumsan. Praesent gravida nulla vitae arcu blandit, non congue elit tempus. Suspendisse quis vestibulum diam.</p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="callout" data-equalizer-watch>
+			<img class="img-responsive" src="{% get_media_prefix %}home/urban.png" alt="Smart Cities" />
+			<h3>Smart Cities</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.	Mauris ut dui ac nisi vestibulum accumsan. Praesent gravida	nulla vitae arcu blandit, non congue elit tempus. Suspendisse quis vestibulum diam.</p>
+    </div>
+  </div>
+	<div class="col-md-3">
+    <div class="callout" data-equalizer-watch>
+			<img class="img-responsive" src="{% get_media_prefix %}home/enviro.png" alt="Enviromental Monitoring" />
+			<h3>Environmental Monitoring</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.	Mauris ut dui ac nisi vestibulum accumsan. Praesent gravida	nulla vitae arcu blandit, non congue elit tempus. Suspendisse quis vestibulum diam.</p>
+    </div>
+  </div>
+	<div class="col-md-3">
+    <div class="callout" data-equalizer-watch>
+			<img class="img-responsive" src="{% get_media_prefix %}home/ag.png" alt="Precision Agriculture" />
+			<h3>Precision Agriculture</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.	Mauris ut dui ac nisi vestibulum accumsan. Praesent gravida	nulla vitae arcu blandit, non congue elit tempus. Suspendisse quis vestibulum diam.</p>
+    </div>
+  </div>
+</div> -->
+
+
+{% endblock %}

@@ -4,5 +4,6 @@ env/bin
 env/include
 env/node_modules
 env/assets/node_modules
+env/assets/static/bundles
 .gitignore
 

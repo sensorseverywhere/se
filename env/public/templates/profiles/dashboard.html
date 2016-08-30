@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+{% block content %}
+
+Hi {{user.username}}, how would you like to save the world today?
+<section>
+  <div class="col-md-8">
+    <div class="dashboard-choices">
+      {% for project in projects %}
+        {{project.name}}
+      {% endfor %}
+        <!-- <div class="btn btn-primary" window.onload()="registerProject()">Start a project?</div> -->
+        <div id="add-project"></div>
+
+      <br>
+      In order of priority
+      <ul>
+        <li>User can create map</li>
+        <li>User can add monitor</li>
+        <li>User can purchase monitor</li>
+        <li>User can create groups</li>
+        <li>User can invite users</li>
+        <li>User can add users to group</li>
+        <li>User can create tasks</li>
+        <li>User can assign task to user</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-offset-2">
+    <div class="dashboard-choices">
+      <div id="project-subscribe"></div>
+      {% render_bundle 'main' %}
+      <div class="btn btn-primary" onClick="subscribeToProject()">Sponsor a project?</div>
+      <ul>
+        <li>User can place sponsor logo or similar</li>
+        <li>User can contribute amount</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+
+ function registerProject() {
+    var event = document.createEvent('Event');
+    event.initEvent('addProject', true, true);
+    document.dispatchEvent(event);
+  }
+  function subscribeToProject() {
+    var event = document.createEvent('Event');
+    event.initEvent('projectSubscribe', true, true);
+    document.dispatchEvent(event);
+  }
+  window.onload = registerProject();
+
+</script>
+
+
+{% endblock %}
