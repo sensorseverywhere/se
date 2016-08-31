@@ -1,30 +1,85 @@
-body { background-color: green; color: #888;}
+//backgrounds courtesy of subtlepatterns.com
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+@import "./css/variables.scss";
+html, body, #mapContainer { width: 100%; height: 100%; }
+body { color: $colour; position: absolute; top: 0; bottom: 0; overflow-y: none;}
 .navbar-brand {height: 40px; background: url("./components/header/images/logo_hd.png") no-repeat; margin-top: 5px;}
-.navbar-links { padding-bottom: 10px; }
-header .header{ height: 50px; background-color: #fff; color: #888; border-bottom: solid 2px #78286B; width: 100%; }
+.navbar-links, .nav-user-account { margin-top: 3px; padding-bottom: 10px; color: $colour; font-size: 1.2em; }
+header .header{
+  height: 40px;
+  background-color: $primary-colour-dark;
+  color: $colour;
+  width: 100%;
+  -webkit-box-shadow:0px 2px 2px $primary-colour-dark;
+  -moz-box-shadow:0px 2px 2px $primary-colour-dark;
+  box-shadow:0px 2px 2px $primary-colour-dark;}
 
-ul { list-style: none;}
-ul li { display: inline; float: right; margin-top: 15px;}
-ul li a { text-decoration: none; margin-right: 10px; padding: 15px 9px 15px 9px; color: #888}
-ul li a:hover { text-decoration: none; background-color: #fafafa; }
+.navbar-links ul, .nav-user-account ul { list-style: none;}
+.navbar-links ul li, .nav-user-account ul li { display: inline; margin-top: 10px;}
+.navbar-links ul li a, .nav-user-account ul li a { text-decoration: none; margin-right: 10px; padding: 15px 9px 10px 9px; color: $colour}
+.navbar-links ul li a:hover, .nav-user-account ul li a:hover { text-decoration: none; color: $text-hover-colour}
 
-.header-search-input { float: right; margin-top: 10px; }
-.header-search-input input[type=text] { height: 25px; width: 150px; display: inline-block;  }
+.navbar-links { float: left; }
+.nav-user-account { position: absolute; margin-left: 90%;}
+
+.header-search-input { float: right;  }
+.header-search-input input[type=text] {
+  height: 25px;
+  width: 150px;
+  display: inline-block;
+  border-radius: 15px;
+  border: black;
+  padding-left: 10px;
+  margin-top: 7px;
+  margin-right: 150px;
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
+}
+.fa-search {
+    position: relative;
+    z-index: 1;
+    left: -175px;
+    top: 0px;
+    color: $colour;
+    cursor:pointer;
+    width: 0;
+}
 
 header .nav-container { margin-top: -5px; width: 100%;}
 header .nav-container ul li a { color: #fff;}
-footer { position: fixed; bottom: 0; margin-left: 12.5%; width: 75%; background-color: #fff; height: 30px; }
+footer { position: fixed; bottom: 0; width: 100%; background-color: $primary-colour-dark; height: 20px; }
 footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 .menu { float: right; margin-top: -20px; }
-.main-container { box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000; height: 800px;}
-.main-container-window { background-color: white;}
-.main-container-inset {background-color: #fff; }
-
-.page-width-container{ width: 75%; margin: -20px auto;}
+.main-container {
+  box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000;
+}
+.main-container-window {
+  height: 100%;
+  background-color: $primary-colour-light;
+  border-left: 10px solid $primary-colour-dark;
+  border-right: 10px solid $primary-colour-dark;
+}
+.main-container-inset {
+    margin: 40px .5%;
+    height: 100%; width: 99%;
+    background-color: $background;
+    //padding: $padding-main;
+  }
+.page-width-container{
+  width: 75%;
+  margin: -20px auto;
+}
 
 //FRONT PAGE
 .project-summary-container { margin-left: 4%; }
-.project-summary-box { background: #fff; width: 12%; height: 250px; box-shadow: 3px 3px 5px #999; float: left; margin-right: 2%; margin-top: 2%; }
+.project-summary-box { background: $primary-colour-light;
+   width: 12%; height: 250px;
+   box-shadow: 3px 3px 5px $primary-colour;
+   float: left;
+   margin-right: 2%;
+   margin-top: 2%; }
 
 .signup-container-splashback {
   width: 102%;
@@ -76,6 +131,9 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 //CREDIT CARD
 #cc-container { margin-top: 20px; position: absolute;}
 
+//DASHBOARD
+#map-controls { float: right; width: 20%; height: 100%; display: block; }
+
 //LEAFLET
-.leaflet-container { height: 400px; display: block; }
-#mapContainer { height: 400px; display: block;}
+.leaflet-container { height: 100%; width: 100%; display: block; }
+#mapContainer { display: block; border-bottom: 10px solid $primary-colour-light; border-right: 10px solid $primary-colour-light;}

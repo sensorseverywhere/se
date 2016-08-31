@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "webpack -p",
     "start": "node server",
-    "build": "webpack",
     "watch": "webpack --watch"
   },
   "author": "",
@@ -32,6 +32,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "font-awesome": "^4.6.3",
     "jquery": "^3.1.0"
   }
 }

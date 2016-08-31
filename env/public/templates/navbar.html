@@ -3,29 +3,40 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
-        <!-- <img src="{% get_media_prefix %}nav/logo.png"/> -->
       </a>
     </div>
     <div class="navbar-links">
-      <form class="header-search-input">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
+      <!-- <li><a href="#" onClick="project-create">Create</a></li>
+      <li><a href="#" onClick="project-subscribe">Subscribe</a></li>
+      <li><a href="#" onClick="project-data">Data</a></li>
+      <li><a href="#" onClick="project-subscribe">Subscribe</a></li>
+    -->
       <ul class="navbar-links">
-
         {% if request.user.is_authenticated %}
-          <li><a href="#" onClick="project-create">Create</a></li>
-          <li><a href="#" onClick="project-subscribe">Subscribe</a></li>
           <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-          <li><a href="{% url 'account_logout' %}">Logout</a></li>
         {% else %}
           <li><a href="{% url 'account_login' %}">Login</a></li>
           <li><a href="{% url 'account_signup' %}">Register</a></li>
           <li><a href="/plans">Plans</a></li>
         {% endif %}
-
       </ul>
+
     </div>
+    <form class="header-search-input">
+      <div class="form-group">
+        <input type="text" id="filter" placeholder="Search"/>
+        <i class="fa fa-search"></i>
+      </div>
+    </form>
+    <div class="nav-user-account">
+      <ul class="nav-user-account">
+        {% if request.user.is_authenticated %}
+          <li><a><i class="fa fa-user" aria-hidden="true"></i>{{user}}</a></li>
+          <ul class="account-flyout">
+            <li><a href="{% url 'account_logout' %}">Logout</a></li>
+          </ul>
+        {% endif %}
+      </ul>
+  </div>
   </div>
 </nav>

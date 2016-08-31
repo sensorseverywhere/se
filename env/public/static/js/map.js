@@ -14,15 +14,17 @@ setTimeout(function(){
        esriMap = L.tileLayer(esriUrl, {attribution: esriAttrib});
 
   var map = L.map('mapContainer', {
-      layers: [esriMap] // only add one!
+      layers: [esriMap], // only add one!
+      scrollWheelZoom: false
   }).setView([-37.372804, 144.499871], 17);
 
   var drawnItems = new L.FeatureGroup();
 
+  $("#mapContainer").height($(window).height() * 0.9).width($(window).width() * 0.8);
+  map.invalidateSize();
   map.on('draw:created', function(e) {
     var type = e.layerType,
         layer = e.layer;
-
         map.addLayer(layer);
   });
 

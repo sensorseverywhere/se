@@ -1,4 +1,4 @@
-import './create-project.scss';
+require('./create-project.scss');
 
 var $ = require("jquery");
 
@@ -44,18 +44,15 @@ var AddProject = React.createClass({
   render: function() {
     var style = { display: this.state.showDiv, top: "-10px"};
     var addProjectBody = <div>
-                            <label>Name:</label>
-                            <input type="text" className="form-control" id="createProjectName"/>
-                            <label>Description:</label>
-                            <input type="text" className="form-control" id="createProjectDescription"/>
                               <div id="mapContainer">
-
                               </div>
-                            <button style={{marginTop: "20px"}} className="btn btn-primary" onClick={this.addProject}>Create Project</button>
+                              <div id="map-controls">
+                                Here is the control panel
+                              </div>
                          </div>
     return (
       <div>
-        <AddProjectDiv style={style} title="Create a Project" body={addProjectBody} />
+        <AddProjectDiv style={style} body={addProjectBody} />
       </div>
     )
   }

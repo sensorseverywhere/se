@@ -18,36 +18,32 @@ module.exports = {
          ],
   output: {
       path: path.resolve('./public/static/bundles/'),
-      //filename: "[name]-[hash].js",
       filename: "[name].js",
       publicPath: 'http://localhost:3000/public/static/bundles/',
   },
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(), // don't reload if there is an error
     new Bundvarracker({filename: './webpack-stats.json'}),
-    //new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
     new webpack.DefinePlugin({
       "process.env": {
-         NODE_ENV: JSON.stringify("production")
+         NODE_ENV: JSON.stringify("development")
        }
     }),
     //new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false },}),
-    //new CleanWebpackPlugin('./public/static/bundles/*'),
-    //new ExtractTextPlugin("[name].css", {publicPath: './public/static/bundles/',allChunks: true}),
+    new ExtractTextPlugin("main.css"),
   ],
   module: {
       loaders: [
 
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot','babel-loader'],},  // to transform JSX into JS
-      //{ test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader") },
-      { test: /\.scss$/, loaders: ["style", "css", "sass"] },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css?sourceMap!sass?sourceMap") },
       { test: /\.(png|jpg|jpeg|gif|woff|ttf|eot|svg|woff2)/, loader: "url-loader?limit=512"},
     ],
 
   },
   resolve: {
-    modulesDirectories: ['node_modules', 'bower_components'],
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx']
   },
 }
