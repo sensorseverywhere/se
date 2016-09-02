@@ -4,8 +4,8 @@ $fa-font-path: "~font-awesome/fonts";
 @import "./css/variables.scss";
 html, body, #mapContainer { width: 100%; height: 100%; }
 body { color: $colour; position: absolute; top: 0; bottom: 0; overflow-y: none;}
-.navbar-brand {height: 40px; background: url("./components/header/images/logo_hd.png") no-repeat; margin-top: 5px;}
-.navbar-links, .nav-user-account { margin-top: 3px; padding-bottom: 10px; color: $colour; font-size: 1.2em; }
+.navbar-brand {height: 40px; width: 40px; background: url("./css/images/nav/logo.png") no-repeat; margin-top: 5px;}
+.navbar-links, .nav-user-account { margin-top: 3px; padding-bottom: 8px; color: $colour; font-size: 1.1em; }
 header .header{
   height: 40px;
   background-color: $primary-colour-dark;
@@ -15,15 +15,18 @@ header .header{
   -moz-box-shadow:0px 2px 2px $primary-colour-dark;
   box-shadow:0px 2px 2px $primary-colour-dark;}
 
-.navbar-links ul, .nav-user-account ul { list-style: none;}
-.navbar-links ul li, .nav-user-account ul li { display: inline; margin-top: 10px;}
-.navbar-links ul li a, .nav-user-account ul li a { text-decoration: none; margin-right: 10px; padding: 15px 9px 10px 9px; color: $colour}
-.navbar-links ul li a:hover, .nav-user-account ul li a:hover { text-decoration: none; color: $text-hover-colour}
+ul { list-style: none;}
+ul li { display: inline; margin-top: 10px;}
+ul li a { text-decoration: none; margin-right: 10px; padding: 15px 9px 10px 9px; color: $colour}
+ul li a:hover { text-decoration: none; color: $text-hover-colour}
+ul li ul { display: none; }
+ul li:hover ul { display: block; position: absolute; margin-top: 20px; margin-left: -20px; }
+
 
 .navbar-links { float: left; }
-.nav-user-account { position: absolute; margin-left: 90%;}
-
-.header-search-input { float: right;  }
+.navbar-right { float: right; display: inline; }
+.nav-user-account { float: right; }
+.header-search-input { float: left;  }
 .header-search-input input[type=text] {
   height: 25px;
   width: 150px;
@@ -32,7 +35,7 @@ header .header{
   border: black;
   padding-left: 10px;
   margin-top: 7px;
-  margin-right: 150px;
+  margin-right: 30px;
   -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
   -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
   box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
@@ -40,7 +43,7 @@ header .header{
 .fa-search {
     position: relative;
     z-index: 1;
-    left: -175px;
+    left: -55px;
     top: 0px;
     color: $colour;
     cursor:pointer;
@@ -82,15 +85,14 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
    margin-top: 2%; }
 
 .signup-container-splashback {
-  width: 102%;
+  width: 99%;
   height: 100%;
-  //background-color: #fff;
   background: url("./css/images/light_wool.png") repeat;
   opacity: .8;
   z-index: 999;
   display: block;
   position: absolute;
-  margin-left: -10%;
+
 }
 
 .signup-container{
@@ -109,6 +111,8 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 
 #div_id_login {  margin-top: 50px; }
 
+.signup-container-form-fields input[type=text], .signup-container-form-fields input[type=password] { width: 350px; }
+
 .front-page-services { margin-top: 20px; }
 
 
@@ -116,13 +120,13 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 
 .social-media-icons-front-page a{ margin-right: 20px; display: inline-block; float: left;}
 .social-media-icons-signin-page a{ margin-right: 20px; display: inline-block; float: left;}
-.fb{  background: url('/media/fb_200.png')  no-repeat center top;  width: 198px;  height: 37px; display: inline-block;}
-.fb-front-page{  background: url('/media/fb-front-page.png')  no-repeat center top;  width: 32px;  height: 32px; display: inline-block;}
+.fb{  background: url('./css/images/socialmedia/fb_200.png')  no-repeat center top;  width: 180px;  height: 37px; display: inline-block;}
+.fb-front-page{  background: url('./css/images/socialmedia/fb-front-page.png')  no-repeat center top;  width: 32px;  height: 32px; display: inline-block;}
 
-.google {background: url('/media/google.png') no-repeat center top; width: 198px; height: 37px; overflow: hidden; display: inline-block}
-.google-front-page {background: url('/media/google-front-page.png') no-repeat center top; width: 32px; height: 32px; overflow: hidden; display: inline-block}
-.twitter {background: url('/media/twitter.png') no-repeat center top; width: 198px; height: 43px; overflow: hidden; display: inline-block}
-.twitter-front-page {background: url('/media/twitter-front-page.png') no-repeat center top; width: 32px; height: 32px; overflow: hidden; display: inline-block}
+.google {background: url('./css/images/socialmedia/google.png') no-repeat center top; width: 180px; height: 37px; overflow: hidden; display: inline-block}
+.google-front-page {background: url('./css/images/socialmedia/google-front-page.png') no-repeat center top; width: 32px; height: 32px; overflow: hidden; display: inline-block}
+.twitter {background: url('./css/images/socialmedia/twitter.png') no-repeat center top; width: 180px; height: 43px; overflow: hidden; display: inline-block}
+.twitter-front-page {background: url('./css/images/socialmedia/twitter-front-page.png') no-repeat center top; width: 32px; height: 32px; overflow: hidden; display: inline-block}
 
 //LOGIN PAGE
 

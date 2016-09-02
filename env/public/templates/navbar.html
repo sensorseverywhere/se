@@ -13,7 +13,9 @@
     -->
       <ul class="navbar-links">
         {% if request.user.is_authenticated %}
-          <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li><a href="{% url 'dashboard' %}">Dashboard</a>
+            <ul><li>Test</li></ul>
+          </li>
         {% else %}
           <li><a href="{% url 'account_login' %}">Login</a></li>
           <li><a href="{% url 'account_signup' %}">Register</a></li>
@@ -22,21 +24,22 @@
       </ul>
 
     </div>
-    <form class="header-search-input">
-      <div class="form-group">
-        <input type="text" id="filter" placeholder="Search"/>
-        <i class="fa fa-search"></i>
+    <div class="navbar-right">
+      <form class="header-search-input">
+        <div class="form-group">
+          <input type="text" id="filter" placeholder="Search"/>
+          <i class="fa fa-search"></i>
+        </div>
+      </form>
+      <div class="nav-user-account">
+        <ul class="nav-user-account">
+          {% if request.user.is_authenticated %}
+            <li><a><i class="fa fa-user" aria-hidden="true"></i>{{user}}</a>
+              <ul><li><a href="{% url 'account_logout' %}">Logout</a></li></ul>
+            </li>
+          {% endif %}
+        </ul>
       </div>
-    </form>
-    <div class="nav-user-account">
-      <ul class="nav-user-account">
-        {% if request.user.is_authenticated %}
-          <li><a><i class="fa fa-user" aria-hidden="true"></i>{{user}}</a></li>
-          <ul class="account-flyout">
-            <li><a href="{% url 'account_logout' %}">Logout</a></li>
-          </ul>
-        {% endif %}
-      </ul>
-  </div>
+    </div>
   </div>
 </nav>

@@ -25,9 +25,9 @@
 			 </div>
 			 <form class="login" method="POST" action="{% url 'account_login' %}">
 				 <input type='hidden' name='csrfmiddlewaretoken' value='zAnTLcflstbS8ZlBUsr5CVg6t1sNlWuS' />{% csrf_token %}
-						<div id="div_id_login" class="form-group">
-									<input autofocus="autofocus" class="" id="id_login" name="login" placeholder="Username or e-mail" type="text" />
-									<input class="" id="id_password" name="password" placeholder="Password" type="password" />
+						<div id="div_id_login" class="form-group signup-container-form-fields">
+									<input autofocus="autofocus" class="splash-login" name="login" placeholder="Username or e-mail" type="text" />
+									<input class="splash-login" name="password" placeholder="Password" type="password" />
 									<p>
 									  <input class="checkboxinput" id="id_remember" name="remember" type="checkbox" />
 							  	  Remember Me
