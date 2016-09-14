@@ -13,14 +13,14 @@ setTimeout(function(){
        landMap = L.tileLayer(landUrl, {attribution: thunAttrib}),
        esriMap = L.tileLayer(esriUrl, {attribution: esriAttrib});
 
-  var map = L.map('mapContainer', {
+  var map = L.map('map', {
       layers: [esriMap], // only add one!
       scrollWheelZoom: false
   }).setView([-37.372804, 144.499871], 17);
 
   var drawnItems = new L.FeatureGroup();
 
-  $("#mapContainer").height($(window).height() * 0.9).width($(window).width() * 0.8);
+  $("#map").height($(window).height() * 0.9).width($(window).width() * 0.8);
   map.invalidateSize();
   map.on('draw:created', function(e) {
     var type = e.layerType,
@@ -45,7 +45,7 @@ setTimeout(function(){
 
  L.control.layers(baseLayers).addTo(map);
 
-
+ //get the bounding box of the map when the user has stopped dragging it.
  function sensor_refresh() {
       var bbox = map.getBounds().toBBoxString();
       var url = window.location.href + 'sensor.json?bbox='+bbox;

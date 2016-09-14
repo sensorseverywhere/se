@@ -1,0 +1,34 @@
+@import "../../css/variables.scss";
+
+#addProject, #add-project { clear: both; margin: 0; padding: 0;}
+
+
+.leaflet-container { height: 100%; width: 80%; display: block; margin-top: -10px; }
+
+.dashboard-context-menu {
+  background-color: $primary-colour-dark;
+  width: 100%;
+  display: inline-block;
+  height: 40px;
+  padding-top: 7px;
+}
+
+#dashboard-container{
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+}
+
+#dashboard-controls {
+  float: right;
+  width: 20%;
+  height: 100%;
+  display: block;
+  padding-left: 15px;
+}
+#map {
+  display: block;
+  width: 80%;
+  margin-top: 0px;
+  border-right: 10px solid $primary-colour-dark;
+}

@@ -6,7 +6,7 @@ var ReactDOM = require("react-dom");
 
 var holder = React.createClass({
   render: function () {
-    return <div>something</div>;
+    return <div></div>;
   }
 });
 $(document).ready(function () {

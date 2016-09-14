@@ -2,30 +2,40 @@
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 @import "./css/variables.scss";
-html, body, #mapContainer { width: 100%; height: 100%; }
+html, body, #map { width: 100%; height: 100%; }
 body { color: $colour; position: absolute; top: 0; bottom: 0; overflow-y: none;}
 .navbar-brand {height: 40px; width: 40px; background: url("./css/images/nav/logo.png") no-repeat; margin-top: 5px;}
-.navbar-links, .nav-user-account { margin-top: 3px; padding-bottom: 8px; color: $colour; font-size: 1.1em; }
 header .header{
-  height: 40px;
+  height: 44px;
   background-color: $primary-colour-dark;
   color: $colour;
   width: 100%;
-  -webkit-box-shadow:0px 2px 2px $primary-colour-dark;
-  -moz-box-shadow:0px 2px 2px $primary-colour-dark;
-  box-shadow:0px 2px 2px $primary-colour-dark;}
+  -webkit-box-shadow:0px 4px 5px -5px rgba(255, 255, 255, .4);
+  -moz-box-shadow:0px 4px 5px -5px rgba(255, 255, 255, .4);
+  box-shadow:0px 1px 5px -5px rgba(255, 255, 255, .4);
+}
 
 ul { list-style: none;}
 ul li { display: inline; margin-top: 10px;}
-ul li a { text-decoration: none; margin-right: 10px; padding: 15px 9px 10px 9px; color: $colour}
+ul li a { text-decoration: none; margin-right: 10px; width: 150px; padding: 15px 9px 10px 9px; color: $colour}
 ul li a:hover { text-decoration: none; color: $text-hover-colour}
 ul li ul { display: none; }
-ul li:hover ul { display: block; position: absolute; margin-top: 20px; margin-left: -20px; }
+.nav-user-account ul li:hover ul {
+  display: block;
+   position: absolute;
+   top: 40px;
+   z-index: 10;
+   right: -20px;
+   background: $primary-colour-dark;
+   width: 150px;
+   height: 30px;
+ }
 
-
-.navbar-links { float: left; }
-.navbar-right { float: right; display: inline; }
+.navbar-links, .nav-user-account { margin-top: 3px; color: $colour; font-size: 1.1em; }
+.navbar-links { float: left; height: 40px; }
+.navbar-right { float: right; display: inline; height: 40px; }
 .nav-user-account { float: right; }
+.nav-user-account-menu { height: 40px; margin-top: 3px; margin-right: 25px; font-size: 1.1em; }
 .header-search-input { float: left;  }
 .header-search-input input[type=text] {
   height: 25px;
@@ -35,15 +45,19 @@ ul li:hover ul { display: block; position: absolute; margin-top: 20px; margin-le
   border: black;
   padding-left: 10px;
   margin-top: 7px;
-  margin-right: 30px;
   -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
   -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
   box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, .8);
 }
+
+.fa-user {
+  margin-right: 10px;
+}
+
 .fa-search {
     position: relative;
     z-index: 1;
-    left: -55px;
+    left: -25px;
     top: 0px;
     color: $colour;
     cursor:pointer;
@@ -60,16 +74,11 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 }
 .main-container-window {
   height: 100%;
-  background-color: $primary-colour-light;
+  background-color: $background;
   border-left: 10px solid $primary-colour-dark;
   border-right: 10px solid $primary-colour-dark;
 }
-.main-container-inset {
-    margin: 40px .5%;
-    height: 100%; width: 99%;
-    background-color: $background;
-    //padding: $padding-main;
-  }
+
 .page-width-container{
   width: 75%;
   margin: -20px auto;
@@ -134,10 +143,3 @@ footer .footer-text { position: relative; margin-bottom: 5px; left: 25%; }
 
 //CREDIT CARD
 #cc-container { margin-top: 20px; position: absolute;}
-
-//DASHBOARD
-#map-controls { float: right; width: 20%; height: 100%; display: block; }
-
-//LEAFLET
-.leaflet-container { height: 100%; width: 100%; display: block; }
-#mapContainer { display: block; border-bottom: 10px solid $primary-colour-light; border-right: 10px solid $primary-colour-light;}
